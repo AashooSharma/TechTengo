@@ -2,6 +2,18 @@
 
 Hello fellow makers and Arduino enthusiasts! Welcome to our exciting project - the MQ-2 Sensor Alarm using Arduino. In this project, you'll learn how to create your very own gas leakage detector and alarm system using simple components and Arduino programming.
 
+## Table Of Contents
+
+1. [Introduction](#introduction)
+    i. [Working of Arduino-based Smoke & Gas Detector](#working-of-arduino-based-smoke--gas-detector)
+2. [Components Required](#components-required)
+3. [Circuit Diagram](#circuit-diagram)
+4. [Arduino Sketch](#arduino-sketch)
+5. [Code Explanation](#code-explanation)
+6. [Testing the Gas Leakage Detector](#testing-the-gas-leakage-detector)
+7. [Safety Precautions](#safety-precautions)
+8. [Conclusion](#conclusion)
+
 ## Introduction
 
 Gas leakage is a serious safety concern in various environments. Whether it's at home, in a workshop, or in industrial settings, detecting gas leaks early can prevent potential disasters. The MQ-2 gas sensor is an affordable and widely available component that can detect various gases, including methane, propane, butane, and alcohol.
