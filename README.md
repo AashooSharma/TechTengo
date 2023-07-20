@@ -37,7 +37,7 @@ To get started, you'll need the following components:
 
 Before we dive into the code, let's take a look at the circuit diagram for our gas leakage detector:
 
-![Circuit Diagram](https://github.com/Automatic-lly/IOTs-Robotics-Projects/blob/23-001/Gas-leakage-detection-System-using-arduino/23-001/Gas-leakage-detection-System-using-arduino/src/circuit-photos/IMG_20230719_133607_817.jpg)
+![Circuit Diagram](src/circuit-photos/IMG_20230719_133607_817.jpg)
 
 ## Arduino Sketch
 
