@@ -25,7 +25,7 @@ To build the Security Alarm System, you will need the following components:
 - Jumper wires
 
 ## Circuit Diagram
-![Circuit Diagram](src/circuit-files/Screenshot 2023-07-28 152929.png)
+![Circuit Diagram](https://github.com/Automatic-lly/IOTs-Robotics-Projects/blob/2ff5657f2a837e772b362fbb438b0f72d4edb3dd/src/circuit-files/Screenshot%202023-07-28%20152929.png)
 
 ## Arduino Sketch
 ```arduino
