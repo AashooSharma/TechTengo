@@ -25,7 +25,7 @@ To build the Automatic Light Control system, you will need the following compone
 - Jumper wires
 
 ## Circuit Diagram
-![Circuit Diagram](https://your-image-link-here)
+![Circuit Diagram](https://github.com/Automatic-lly/IOTs-Robotics-Projects/blob/9021c4cd3758b1d7075545f2fc08f3b80f139206/src/circuit-files/Screenshot%202023-07-28%20161208.png)
 
 ## Arduino Sketch
 ```arduino
