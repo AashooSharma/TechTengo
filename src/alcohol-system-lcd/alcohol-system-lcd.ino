@@ -3,11 +3,11 @@
 #include <ESP8266WiFi.h>
 #include <LiquidCrystal_I2C.h>
 
-LiquidCrystal_I2C lcd(0x26, 16, 2);
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 
-// unsigned long myChannelNumber = 31461;
-// const char * myWriteAPIKey = "LD79EOAAWRVYF04Y";
+unsigned long myChannelNumber = 31461;
+const char * myWriteAPIKey = "LD79EOAAWRVYF04Y";
 
 const int gasSensorPin = A0;
 const int alcoholThreshold = 500;  // Adjust this value based on your sensor sensitivity
@@ -16,6 +16,7 @@ const int greenLed = D3;
 
 
 void setup() {
+  lcd.clear();
   Serial.begin(115200);
   pinMode(gasSensorPin, INPUT);
   pinMode(redLed, OUTPUT);
@@ -38,6 +39,7 @@ void loop() {
     digitalWrite(redLed, HIGH);
   }
   long MappedAlcoholLevel = map(alcoholLevel, 0, 1000, 0, 100);
+  Serial.println(MappedAlcoholLevel);
   lcd.setCursor(0, 1);
   lcd.print("        ");
   lcd.setCursor(0, 1);
