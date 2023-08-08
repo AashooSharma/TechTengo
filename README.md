@@ -26,7 +26,7 @@ To build the LDR Sensor Light, you will need the following components:
 - Jumper wires
 
 ## Circuit Diagram
-![Circuit Diagram](https://github.com/Automatic-lly/IOTs-Robotics-Projects/blob/a18cd876d64c47243739f86b9699c73280790619/src/circuit-files/Screenshot%202023-07-28%20155010.png)
+![Circuit Diagram](src/circuit-files/Screenshot%202023-07-28%20155010.png)
 
 ## Arduino Sketch
 ```arduino
