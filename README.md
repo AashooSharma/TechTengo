@@ -25,7 +25,7 @@ To create the LED Blinking project, you will need the following components:
 - Jumper wires
 
 ## Circuit Diagram
-![Circuit Diagram](src/circuit-files/Screenshot 2023-08-09 181747.png)
+![Circuit Diagram](src/circuit-files/circuit.png)
 
 ## Arduino Sketch
 ```arduino
