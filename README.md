@@ -26,7 +26,7 @@ To create the LEDs Control by Voice project, you will need the following compone
 - Jumper wires
 
 ## Circuit Diagram
-![Circuit Diagram](https://your-image-link-here)
+![Circuit Diagram](src/circuit-files/circuit_1.png)
 
 ## Arduino Sketch
 ```arduino
