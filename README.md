@@ -8,103 +8,74 @@
 4. [Circuit Diagram](#circuit-diagram)
 5. [Arduino Sketch](#arduino-sketch)
    - [Source Code Explanation](#source-code-explanation)
-6. [Conclusion](#conclusion)
-7. [Future Enhancements](#future-enhancements)
+6. [Working Principle](#working-principle)
+7. [Conclusion](#conclusion)
+8. [Future Enhancements](#future-enhancements)
+9. [Tags](#tags)
 
 ## Introduction
-The "LDR Sensor Light with Arduino" is a simple project that automatically controls a light source based on the ambient light conditions. We will use an LDR (Light-Dependent Resistor) sensor to detect the surrounding light intensity. When it gets dark, the Arduino will turn on the light, and when it's bright, the Arduino will turn off the light.
+In the "LDR Sensor Light with Arduino" project, we explore the concept of using an LDR (Light Dependent Resistor) to control the illumination of an LED based on changes in ambient light conditions. This project offers a simple yet effective example of an automatic light control system that finds applications in energy-efficient lighting, security systems, and various other areas.
 
 ## Project Overview
-This project demonstrates how an LDR sensor can be used to control a light source automatically. The Arduino reads the analog value from the LDR sensor, and based on a predefined threshold value, it decides whether to turn on or off the light. It can be used for applications like streetlights, automatic night lamps, or any scenario where automatic light control is needed.
+The main idea behind this project is to create an intelligent lighting solution that adapts to its environment. The LED will automatically turn on when the surroundings become dark and turn off when there's enough ambient light. This not only helps in saving energy but also offers convenience by ensuring that lighting is only active when necessary.
 
 ## Components Required
-To build the LDR Sensor Light, you will need the following components:
-- Arduino Uno board
-- LDR sensor
-- Light source (LED, lamp, etc.)
-- Relay module
+For this project, you will need the following components:
+- Arduino board (e.g., Arduino Uno)
+- LDR (Light Dependent Resistor)
+- LED
+- 220Ω Resistor (for the LED)
 - Jumper wires
 
 ## Circuit Diagram
-![Circuit Diagram](src/circuit-files/Screenshot%202023-07-28%20155010.png)
+![Circuit Diagram](https://your-image-link-here)
 
 ## Arduino Sketch
 ```arduino
-const int ldrSensorPin = A0;  // LDR sensor analog input pin
-const int lightPin = 13;      // Digital output pin for the light
-const int thresholdValue = 500;  // Adjust this value based on your ambient light conditions
+const int ldrPin = 8;      // Digital pin connected to LDR
+const int ledPin = 13;     // Digital pin connected to LED
+const int darkThreshold = HIGH; // Digital value when it's dark
 
 void setup() {
-  pinMode(lightPin, OUTPUT);
-  Serial.begin(9600);  // Initialize serial communication (optional)
+  pinMode(ledPin, OUTPUT);
+  pinMode(ldrPin, INPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
-  int ldrValue = analogRead(ldrSensorPin);  // Read the analog value from the LDR sensor
-  Serial.println(ldrValue);  // Print the LDR value (optional)
+  int ldrValue = digitalRead(ldrPin);
+  Serial.println("LDR Value: " + String(ldrValue));
 
-  if (ldrValue < thresholdValue) {
-    // It's dark, turn on the light
-    digitalWrite(lightPin, HIGH);
-    Serial.println("Light ON");  // Print a message to the serial monitor (optional)
+  if (ldrValue == darkThreshold) {  // LDR value indicates it's dark
+    digitalWrite(ledPin, HIGH);  // Turn on the LED
   } else {
-    // It's bright, turn off the light
-    digitalWrite(lightPin, LOW);
-    Serial.println("Light OFF");  // Print a message to the serial monitor (optional)
+    digitalWrite(ledPin, LOW);   // Turn off the LED
   }
-
-  delay(500);  // A short delay to avoid rapid changes in light readings
+  
+  delay(1000); // Delay between readings
 }
 ```
 
 ### Source Code Explanation
-The source code is relatively straightforward. Let's go through it step-by-step.
+The provided source code demonstrates how to interface an LDR with an Arduino board to control an LED based on ambient light conditions.
 
-**1. `const int ldrSensorPin = A0;`:**
-The `ldrSensorPin` variable is set to A0, representing the analog input pin connected to the LDR sensor.
+**1. `const int ...Pin = ...;`:**
+These lines define the pin numbers for the LDR and the LED. Ensure these pin numbers match your physical connections.
 
-**2. `const int lightPin = 13;`:**
-The `lightPin` variable is set to 13, representing the digital output pin for controlling the light.
+**2. `void setup()`:**
+The `setup()` function initializes the pin modes and serial communication for debugging purposes.
 
-**3. `const int thresholdValue = 500;`:**
-The `thresholdValue` variable is used to define the LDR value threshold for determining whether it's dark or bright. You can adjust this value based on your ambient light conditions.
+**3. `void loop()`:**
+The `loop()` function reads the LDR value using `digitalRead(ldrPin)`. If the LDR value equals the `darkThreshold` value, indicating low light conditions, the LED is turned on. Otherwise, the LED is turned off.
 
-**4. `void setup()`:**
-The `setup()` function is called when the Arduino board is powered up or reset. It configures the lightPin as an output and initializes the Serial Monitor (optional).
-
-**5. `Serial.begin(9600);`:**
-The `Serial.begin()` function is used to initialize the Serial Monitor at a baud rate of 9600 bps for optional debugging.
-
-**6. `void loop()`:**
-The `loop()` function is the main execution loop that continuously reads the LDR sensor value and controls the light.
-
-**7. `int ldrValue = analogRead(ldrSensorPin);`:**
-The `analogRead()` function reads the analog value from the LDR sensor connected to the `ldrSensorPin`.
-
-**8. `Serial.println(ldrValue);`:**
-This line prints the LDR value to the Serial Monitor (optional) for monitoring the light intensity.
-
-**9. `if (ldrValue < thresholdValue) { ... }`:**
-If the LDR value is less than the threshold value (it's dark), the light is turned on.
-
-**10. `digitalWrite(lightPin, HIGH);`:**
-The `digitalWrite()` function is used to turn on the light (set the `lightPin` to HIGH) when it's dark.
-
-**11. `else { ... }`:**
-If the LDR value is greater than or equal to the threshold value (it's bright), the light is turned off.
-
-**12. `digitalWrite(lightPin, LOW);`:**
-The `digitalWrite()` function is used to turn off the light (set the `lightPin` to LOW) when it's bright.
-
-**13. `delay(500);`:**
-A short delay of 500 milliseconds is added to avoid rapid changes in light readings.
+## Working Principle
+The LDR (Light Dependent Resistor) changes its resistance based on the amount of light it receives. When the surroundings are dark, the LDR's resistance increases, resulting in a higher voltage across it. Conversely, when there's sufficient light, the resistance decreases, leading to a lower voltage.
 
 ## Conclusion
-Congratulations! You have successfully created an LDR Sensor Light with Arduino. The system automatically controls the light based on the surrounding light conditions.
+The "LDR Sensor Light with Arduino" project showcases a simple but valuable application of sensor-based automation. By using an LDR to detect changes in ambient light levels, the system efficiently controls the LED, demonstrating the potential for energy conservation and automation in lighting systems.
 
 ## Future Enhancements
-You can further enhance this project by adding additional features like adjusting the threshold value based on the time of day, integrating it with home automation systems, or implementing more complex light control algorithms for specific applications.
+As you delve deeper into this project, consider incorporating additional features such as remote control, adjustable sensitivity, or the ability to set a time-based schedule for the LED operation. These enhancements can make your automatic light control system even more versatile and user-friendly.
 
-Feel free to explore and customize the project to suit your specific light control requirements.
-
-**Tags:** IoT, LDR Sensor, Automatic Light Control, Arduino, Home Automation, DIY Project
+## Tags
+Arduino, LDR Sensor, Automatic Light Control, LED, Light Dependent Resistor, Sensor-based Automation, Energy Efficiency, DIY Project
