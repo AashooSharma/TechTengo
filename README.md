@@ -26,7 +26,7 @@ To create the LDR Sensor Security Alarm, you will need the following components:
 - Jumper wires
 
 ## Circuit Diagram
-![Circuit Diagram](https://your-image-link-here)
+![Circuit Diagram](src/circuit-files/_circuit.png)
 
 ## Arduino Sketch
 ```arduino
