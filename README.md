@@ -28,7 +28,7 @@ For this project, you will need the following components:
 - Jumper wires
 
 ## Circuit Diagram
-![Circuit Diagram](https://your-image-link-here)
+![Circuit Diagram](src/circuit-files/my-circuit-1.png)
 
 ## Arduino Sketch
 ```arduino
